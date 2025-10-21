@@ -9,6 +9,8 @@ typedef enum
 	INPUT_RESULT_NO_INPUT
 } INPUT_RESULT;
 
+// Om ni vill - förbättra med const char *
+
 INPUT_RESULT GetInput(char* prompt, char* buff, int maxSize);
 bool GetInputInt(char* prompt, int* value);
 bool GetInputFloat(char* prompt, float* value);

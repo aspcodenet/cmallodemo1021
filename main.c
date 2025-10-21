@@ -85,6 +85,9 @@ int main(){
         while(true){
             bool ok = GetInputInt("Ange val:", &selection);
             if(ok){
+                //int *aaa =malloc(10*sizeof(int)) ;
+                //free(aaa);
+                //aaa=12;
                 break;
             }
             printf("Men din dummer skriv in ett tal");
@@ -112,6 +115,7 @@ int main(){
 
                 break;
             case 3:
+                free(playersList.allPlayers);
                 return 0;
         }
     }

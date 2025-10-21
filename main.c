@@ -13,9 +13,6 @@ void printMenu(){
     printf("3. Exit\n");
 }
 
-// input, print
-// API - färdiga funktioner - 
-// avr_gcc Embedded - färdiga funktioner 
 
 void createNew(Player *newPlayer){
     // Felhantering - loopa till alla är "ok"
@@ -23,13 +20,14 @@ void createNew(Player *newPlayer){
     printf("Name:");
     scanf(" %s", newPlayer->name);
     
-    // bool successfulInput = GetInputInt("Jersey:",&newPlayer->jersey);
     printf("Jersey:");
     scanf(" %d",&newPlayer->jersey); // om error = ingen clear
 }
 
 
 int main(){
+    Player player[10];
+    
     while(true){
         printMenu();
         int selection;

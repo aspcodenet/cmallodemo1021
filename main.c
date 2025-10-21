@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <stdbool.h>
-#include "safeinput.h"
 
 typedef struct {
     int jersey;
@@ -27,7 +26,7 @@ void createNew(Player *newPlayer){
 
 int main(){
     Player player[10];
-    
+
     while(true){
         printMenu();
         int selection;

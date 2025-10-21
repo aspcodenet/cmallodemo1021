@@ -58,6 +58,11 @@ void createNew(Player *newPlayer){
  }
 
 
+ typedef struct{
+    Player *allPlayers;
+    int count;
+ } PLAYERSLIST;
+
 int main(){
     //int age;
     //Player allPlayers[10]; // 240 bytes
@@ -69,8 +74,9 @@ int main(){
     // scanf(" %d", &num);
     // Player player[num];
 
-    Player *allPlayers = NULL;
-    int count = 0;
+    PLAYERSLIST playersList;
+    playersList.count = 0;
+    playersList.allPlayers = NULL;
     while(true){
         printMenu();
         int selection;
@@ -87,21 +93,21 @@ int main(){
         switch(selection){
             case 1:
                 //allPlayers = realloc(allPlayers, (count + 1) * sizeof(Player));
-                if(count == 0){
-                    allPlayers = malloc(sizeof(Player));
+                if(playersList.count == 0){
+                    playersList.allPlayers = malloc(sizeof(Player));
                 }else{
-                    int newSize = (count + 1) * sizeof(Player);
-                    allPlayers = realloc(allPlayers,newSize);
+                    int newSize = (playersList.count + 1) * sizeof(Player);
+                    playersList.allPlayers = realloc(playersList.allPlayers,newSize);
                 }
-                createNew(&allPlayers[count]);
-                printf("Ny spelare som heter:%s\n", allPlayers[count].name);
-                count++;
+                createNew(&playersList.allPlayers[playersList.count]);
+                printf("Ny spelare som heter:%s\n", playersList.allPlayers[playersList.count].name);
+                playersList.count++;
                 //Put player into a "list"  (dvs array!) (konsektivt minne)
                 break;
             case 2:
                 printf("Lista alla\n");
-                for(int i = 0; i < count;i++){
-                    printf("%s\n", allPlayers[i].name);
+                for(int i = 0; i < playersList.count;i++){
+                    printf("%s\n", playersList.allPlayers[i].name);
                 }
 
                 break;
